@@ -2,6 +2,4 @@
 venv/
 content/
 frames_png/
-
-
-
+torch_gpu_env/
