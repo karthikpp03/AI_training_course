@@ -1,7 +1,4 @@
 #virtual env
-venv/
-content/
-frames_png/
+venv/ 
+
 torch_gpu_env/
-capstone_project/data/
-capstone_project/signboard-detector
