@@ -3,3 +3,5 @@ venv/
 content/
 frames_png/
 torch_gpu_env/
+capstone_project/data/
+capstone_project/signboard-detector
