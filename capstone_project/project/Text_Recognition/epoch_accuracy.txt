@@ -1,0 +1,301 @@
+PS E:\AI_training_course\capstone_project\project> python train_eval_seq2seq.py
+Vocab size (including PAD,SOS,EOS): 240
+Epoch 1/50 - Loss: 2.7355, LR: 0.000040, TF: 0.89
+Epoch 2/50 - Loss: 2.2396, LR: 0.000112, TF: 0.88
+Epoch 3/50 - Loss: 2.1050, LR: 0.000201, TF: 0.86
+Epoch 4/50 - Loss: 2.0253, LR: 0.000273, TF: 0.85
+Epoch 5/50 - Loss: 1.9688, LR: 0.000300, TF: 0.84
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'संस्थान'
+    CER:  0.733
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'स्वच्छ'
+    CER:  1.000
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'स्वच्छ'
+    CER:  1.000
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    CER:  1.000
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    GT:   'मरियानी'
+    Pred: 'स्वच्छता'
+    CER:  0.867
+    CER:  0.867
+    Word Acc: ✗
+ -> Epoch 5: Char Acc=8.89%, CER=0.805, Word Acc=1.21%
+ -> New best model saved! Accuracy: 8.89%
+Epoch 6/50 - Loss: 1.9265, LR: 0.000300, TF: 0.83
+Epoch 7/50 - Loss: 1.8876, LR: 0.000299, TF: 0.82
+Epoch 8/50 - Loss: 1.8587, LR: 0.000297, TF: 0.80
+Epoch 9/50 - Loss: 1.8450, LR: 0.000294, TF: 0.79
+Epoch 10/50 - Loss: 1.8125, LR: 0.000291, TF: 0.78
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'स्वागत'
+    CER:  0.714
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'अपने'
+    CER:  0.750
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मार्मिक'
+    CER:  0.571
+    Word Acc: ✗
+ -> Epoch 10: Char Acc=17.09%, CER=0.687, Word Acc=5.83%
+ -> New best model saved! Accuracy: 17.09%
+Epoch 11/50 - Loss: 1.7617, LR: 0.000287, TF: 0.77
+Epoch 12/50 - Loss: 1.7296, LR: 0.000282, TF: 0.76
+Epoch 13/50 - Loss: 1.6865, LR: 0.000277, TF: 0.74
+Epoch 14/50 - Loss: 1.6470, LR: 0.000271, TF: 0.73
+Epoch 15/50 - Loss: 1.6054, LR: 0.000265, TF: 0.72
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मंग्रियम'
+    CER:  0.467
+    Word Acc: ✗
+ -> Epoch 15: Char Acc=35.14%, CER=0.494, Word Acc=19.56%
+ -> New best model saved! Accuracy: 35.14%
+Epoch 16/50 - Loss: 1.5788, LR: 0.000258, TF: 0.71
+Epoch 17/50 - Loss: 1.5532, LR: 0.000250, TF: 0.70
+Epoch 18/50 - Loss: 1.5348, LR: 0.000242, TF: 0.68
+Epoch 19/50 - Loss: 1.5132, LR: 0.000234, TF: 0.67
+Epoch 20/50 - Loss: 1.5005, LR: 0.000225, TF: 0.66
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियाना'
+    CER:  0.143
+    Word Acc: ✗
+ -> Epoch 20: Char Acc=45.09%, CER=0.392, Word Acc=28.68%
+ -> New best model saved! Accuracy: 45.09%
+Epoch 21/50 - Loss: 1.4854, LR: 0.000216, TF: 0.65
+Epoch 22/50 - Loss: 1.4673, LR: 0.000206, TF: 0.64
+Epoch 23/50 - Loss: 1.4550, LR: 0.000196, TF: 0.62
+Epoch 24/50 - Loss: 1.4368, LR: 0.000186, TF: 0.61
+Epoch 25/50 - Loss: 1.4221, LR: 0.000176, TF: 0.60
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+ -> Epoch 25: Char Acc=49.94%, CER=0.342, Word Acc=33.52%
+ -> New best model saved! Accuracy: 49.94%
+Epoch 26/50 - Loss: 1.4088, LR: 0.000166, TF: 0.59
+Epoch 27/50 - Loss: 1.4112, LR: 0.000155, TF: 0.58
+Epoch 28/50 - Loss: 1.3997, LR: 0.000145, TF: 0.56
+Epoch 29/50 - Loss: 1.3877, LR: 0.000134, TF: 0.55
+Epoch 30/50 - Loss: 1.3706, LR: 0.000124, TF: 0.54
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+    CER:  0.000
+    Word Acc: ✓
+    Word Acc: ✓
+ -> Epoch 30: Char Acc=54.61%, CER=0.309, Word Acc=38.27%
+ -> New best model saved! Accuracy: 54.61%
+Epoch 31/50 - Loss: 1.3688, LR: 0.000114, TF: 0.53
+Epoch 32/50 - Loss: 1.3595, LR: 0.000104, TF: 0.52
+Epoch 33/50 - Loss: 1.3515, LR: 0.000094, TF: 0.50
+Epoch 34/50 - Loss: 1.3512, LR: 0.000084, TF: 0.49
+Epoch 35/50 - Loss: 1.3471, LR: 0.000075, TF: 0.48
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+ -> Epoch 35: Char Acc=56.53%, CER=0.289, Word Acc=39.79%
+ -> New best model saved! Accuracy: 56.53%
+Epoch 36/50 - Loss: 1.3399, LR: 0.000066, TF: 0.47
+Epoch 37/50 - Loss: 1.3368, LR: 0.000058, TF: 0.46
+Epoch 38/50 - Loss: 1.3192, LR: 0.000050, TF: 0.44
+Epoch 39/50 - Loss: 1.3228, LR: 0.000042, TF: 0.43
+Epoch 40/50 - Loss: 1.3221, LR: 0.000035, TF: 0.42
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+ -> Epoch 40: Char Acc=58.16%, CER=0.278, Word Acc=40.95%
+ -> New best model saved! Accuracy: 58.16%
+Epoch 41/50 - Loss: 1.3226, LR: 0.000029, TF: 0.41
+Epoch 42/50 - Loss: 1.3167, LR: 0.000023, TF: 0.40
+Epoch 43/50 - Loss: 1.3155, LR: 0.000018, TF: 0.38
+Epoch 44/50 - Loss: 1.3182, LR: 0.000013, TF: 0.37
+Epoch 45/50 - Loss: 1.3232, LR: 0.000009, TF: 0.36
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+ -> Epoch 45: Char Acc=58.33%, CER=0.277, Word Acc=41.67%
+ -> New best model saved! Accuracy: 58.33%
+Epoch 46/50 - Loss: 1.3283, LR: 0.000006, TF: 0.35
+Epoch 47/50 - Loss: 1.3263, LR: 0.000003, TF: 0.34
+Epoch 48/50 - Loss: 1.3315, LR: 0.000001, TF: 0.32
+Epoch 49/50 - Loss: 1.3382, LR: 0.000000, TF: 0.31
+Epoch 50/50 - Loss: 1.3341, LR: 0.000000, TF: 0.30
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: 'सत्यमेव'
+    CER:  0.067
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: 'जयते'
+    CER:  0.000
+    Word Acc: ✓
+  Example 3:
+    GT:   'मरियानी'
+    Pred: 'मरियानी'
+    CER:  0.000
+    Word Acc: ✓
+ -> Epoch 50: Char Acc=59.37%, CER=0.266, Word Acc=42.51%
+
+=== BEAM SEARCH EVALUATION ===
+  Example 1:
+    GT:   'सत्‍यमेव'
+    Pred: '<SOS>सत्यमेव'
+    CER:  0.300
+    Word Acc: ✗
+  Example 2:
+    GT:   'जयते'
+    Pred: '<SOS>जयते'
+    CER:  0.385
+    Word Acc: ✗
+  Example 3:
+    GT:   'मरियानी'
+    Pred: '<SOS>मरियानी'
+    CER:  0.263
+    Word Acc: ✗
+ -> Epoch 50: Char Acc=0.89%, CER=0.523, Word Acc=0.00%
+ -> New best model saved! Accuracy: 59.37%
+
+=== TRAINING COMPLETED ===
+Best character accuracy: 59.37%
+PS E:\AI_training_course\capstone_project\project> 
