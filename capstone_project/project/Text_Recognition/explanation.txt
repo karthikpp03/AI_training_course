@@ -1,0 +1,54 @@
+1️⃣ dataset_seq2seq.py – Preparing the data
+
+* Loads image + text pairs using PyTorch Dataset.
+* Keeps only Hindi text and filters sentences.
+* Builds vocabulary with special tokens `<PAD>`, `<SOS>`, `<EOS>`.
+* Converts Hindi characters to numbers and pads sequences.
+* Adds `<SOS>` at the start and `<EOS>` at the end of sequences.
+* Applies image transforms (resize, normalize, etc.) for training.
+
+
+
+2️⃣ model_seq2seq.py – Neural network
+
+A. CNN Encoder
+
+* Extracts features from images using convolutional layers, batch norm, ReLU, max pooling, and dropout.
+* Produces sequences of features for the decoder.
+
+B. Attention Layer
+
+* Computes attention weights over encoder features at each step.
+* Helps the decoder focus on the relevant part of the image when predicting each character.
+
+C. Decoder
+
+* Embedding → LSTM → Attention → Output layer.
+* Predicts characters one at a time.
+* Supports teacher forcing during training.
+
+D. Seq2Seq Model
+
+* Combines encoder + decoder.
+* Forward pass: image → encoder → decoder → predicted sequence.
+
+3️⃣ test_seq2seq.py – Inference
+
+* Loads trained model weights.
+* Preprocesses new images (resize + normalize).
+* Two decoding options:
+
+  1. Greedy decoding – pick the most likely character each step.
+  2. Beam search – keeps top sequences for more accurate predictions.
+Converts predicted numbers back to characters.
+
+4️⃣ train_eval_seq2seq.py – Training
+
+* Uses DataLoader with collate function for batches.
+* Label smoothing prevents overconfident predictions.
+* Teacher forcing schedule: start high, gradually reduce so model learns to predict on its own.
+* Data augmentation: small image distortions to improve robustness.
+* Optimizer & scheduler**: Adam + OneCycleLR for better convergence.
+* Evaluates Character Error Rate (CER) and accuracy during training.
+* Saves checkpoints and best models.
+

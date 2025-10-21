@@ -1,0 +1,44 @@
+1️⃣ dataset.py – Preparing the data
+
+* Reads the dataset using pandas and cleans it (removes extra spaces, weird characters).
+* Converts words into numbers (tokenization) so the model can understand them.
+* Pads sequences so all sentences are the same length.
+* Filters very short or very long sentences.
+* Adds special tokens like `<start>` and `<end>` so the model knows where sentences begin and end.
+* Saves the tokenizers so they can be reused later.
+
+
+2️⃣ model.py – The neural network
+
+* Uses LSTM layers to handle sequences.
+* Adds attention so the decoder can focus on the important words in the input sentence instead of just relying on a single summary vector.
+* Encoder: Turns input words into embeddings, then passes through LSTM to get sequences and hidden states.
+* Decoder: Takes encoder output, uses attention, predicts output words one by one.
+* build_model() makes it easy to create encoder and decoder with the right settings.
+
+
+
+3️⃣ utils.py – Training and translation logic
+
+* Uses TensorFlow GradientTape to calculate gradients.
+* Teacher forcing: During training, feeds the actual next word to the decoder to help learning.
+* Handles loss calculation while ignoring padded parts of sequences.
+* Functions to translate new sentences and test example sentences.
+
+4️⃣ train.py – Running the training
+
+* Loads data efficiently using TensorFlow Dataset API.
+* Runs a loop over epochs and batches, using `train_one_batch()` to update the model.
+* Saves checkpoints every few epochs.
+* Tests a few sentences during training to see progress.
+
+
+
+5️⃣ test.py – Testing and inference
+
+* Loads trained model and tokenizers.
+* Tests one sentence at a time.
+* Interactive loop lets you type a Hindi sentence and see the English translation.
+
+
+

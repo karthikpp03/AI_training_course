@@ -2,4 +2,4 @@ For Phase 1 – Text Detection - https://www.kaggle.com/datasets/ramisashararnid
 
 For phase 2 - Text Recognization - https://drive.google.com/file/d/1wvlTbGnpnSRspM5MbjDgfSMH3BwM6qI0/view
 
-For Phase 3 – Transliteration - 
+For Phase 3 – Transliteration - https://www.kaggle.com/datasets/vaibhavkumar11/hindi-english-parallel-corpus
