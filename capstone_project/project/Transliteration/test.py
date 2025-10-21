@@ -3,7 +3,7 @@ from utils import translate_one_sentence, test_example_translations
 from dataset import Translator
 from model import build_model
 
-print("🧪 Loading trained model for testing...")
+print("Loading trained model for testing...")
 
 
 # Initialize translator and load tokenizers
@@ -23,7 +23,7 @@ encoder, decoder = build_model(h_vocab_size, e_vocab_size, batch_size=1)  # batc
 encoder.load_weights('encoder_final.h5')
 decoder.load_weights('decoder_final.h5')
 
-print("✅ Model loaded successfully!")
+print("Model loaded successfully!")
 
 
 # Test a few sentences automatically
@@ -32,7 +32,7 @@ test_example_translations(encoder, decoder, translator)
 
 # Interactive testing (user input)
 
-print("\n💬 Interactive Testing (type 'quit' to exit):")
+print("\n Interactive Testing (type 'quit' to exit):")
 while True:
     hindi_sentence = input("\nEnter Hindi sentence: ").strip()
     if hindi_sentence.lower() == 'quit':
