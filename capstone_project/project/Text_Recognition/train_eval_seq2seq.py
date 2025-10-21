@@ -1,5 +1,4 @@
-# train_eval_seq2seq_simple.py
-# Beginner-friendly training + evaluation for seq2seq model
+
 
 import os
 import torch

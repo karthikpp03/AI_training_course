@@ -1,6 +1,6 @@
-# model_seq2seq_simple.py
+
 # This file has a CNN encoder + attention-based decoder model for Hindi text recognition
-# (Made beginner-friendly with simple comments and structure)
+
 
 import torch
 import torch.nn as nn

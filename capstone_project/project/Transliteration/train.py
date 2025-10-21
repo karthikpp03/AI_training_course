@@ -12,7 +12,7 @@ EMBEDDING_DIM = 256
 UNITS = 512
 EPOCHS = 20
 
-print("🚀 Starting Hindi-English translation training...")
+print("Starting Hindi-English translation training...")
 
 
 # Load and prepare data
@@ -21,14 +21,14 @@ translator = Translator(max_len=25)
 hindi_sentences, english_sentences = translator.load_data('/content/data/hindi_english_parallel.csv')
 
 if not hindi_sentences:
-    print("❌ No data loaded. Exiting.")
+    print("No data loaded. Exiting.")
     exit()
 
 # Make tokenizers and clean text
 hindi_sentences, english_sentences = translator.make_tokenizers(hindi_sentences, english_sentences)
 
 if not hindi_sentences:
-    print("❌ Tokenization failed. Exiting.")
+    print("Tokenization failed. Exiting.")
     exit()
 
 # Convert sentences to sequences of numbers
@@ -36,8 +36,8 @@ hindi_seq, english_seq = translator.text_to_seq(hindi_sentences, english_sentenc
 
 # Get vocabulary sizes
 h_vocab_size, e_vocab_size = translator.vocab_size()
-print(f"📊 Training with {len(hindi_sentences)} samples")
-print(f"🔤 Hindi vocab: {h_vocab_size}, English vocab: {e_vocab_size}")
+print(f"Training with {len(hindi_sentences)} samples")
+print(f"Hindi vocab: {h_vocab_size}, English vocab: {e_vocab_size}")
 
 
 # Create TensorFlow dataset
@@ -57,7 +57,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)
 
 # Training loop
 
-print("🎯 Training started...")
+print("Training started...")
 
 for epoch in range(EPOCHS):
     total_loss = 0
@@ -73,7 +73,7 @@ for epoch in range(EPOCHS):
             print(f'   Batch {batch} Loss: {batch_loss.numpy():.4f}')
     
     avg_loss = total_loss / num_batches if num_batches > 0 else 0
-    print(f'📍 Epoch {epoch+1}/{EPOCHS} Average Loss: {avg_loss.numpy():.4f}')
+    print(f'Epoch {epoch+1}/{EPOCHS} Average Loss: {avg_loss.numpy():.4f}')
     
     # Test every 5 epochs
     if (epoch + 1) % 5 == 0:
@@ -83,7 +83,7 @@ for epoch in range(EPOCHS):
         # Save checkpoint weights
         encoder.save_weights(f'encoder_epoch_{epoch+1}.h5')
         decoder.save_weights(f'decoder_epoch_{epoch+1}.h5')
-        print(f'💾 Checkpoint saved at epoch {epoch+1}')
+        print(f'Checkpoint saved at epoch {epoch+1}')
 
 
 # Final save
@@ -92,5 +92,5 @@ encoder.save_weights('encoder_final.h5')
 decoder.save_weights('decoder_final.h5')
 translator.save_tokenizers()
 
-print("🎉 Training completed!")
-print("💾 Final models and tokenizers saved!")
+print("Training completed!")
+print("Final models and tokenizers saved!")

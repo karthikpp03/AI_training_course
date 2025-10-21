@@ -1,6 +1,6 @@
-# test_seq2seq_simple.py
+
 # This script tests a trained seq2seq model on an image
-# (beginner-friendly version with simple comments)
+
 
 import torch
 from PIL import Image
