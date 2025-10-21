@@ -1,54 +1,118 @@
-1️⃣ dataset_seq2seq.py – Preparing the data
 
-* Loads image + text pairs using PyTorch Dataset.
-* Keeps only Hindi text and filters sentences.
-* Builds vocabulary with special tokens `<PAD>`, `<SOS>`, `<EOS>`.
-* Converts Hindi characters to numbers and pads sequences.
-* Adds `<SOS>` at the start and `<EOS>` at the end of sequences.
-* Applies image transforms (resize, normalize, etc.) for training.
+1️⃣ Dataset Preparation (`dataset_seq2seq_simple.py`)
+
+Purpose:
+
+* Load images and corresponding Hindi text from a CSV file.
+* Convert text into token indices for training.
+* Prepare batches with proper padding for sequence models.
+
+Tech / Algorithms / Logic:
+
+* PyTorch `Dataset` class: Custom dataset to feed images and sequences to the model.
+* Vocabulary building:
+
+  * Create `<PAD>`, `<SOS>`, `<EOS>` tokens.
+  * Map characters to integers and vice versa.
+* Sequence tokenization: Convert text to list of integer token IDs.
+* Batch collation (`collate_fn_seq`):
+
+  * Handles sequences of different lengths.
+  * Adds `<SOS>` at the start and `<EOS>` at the end.
+  * Pads shorter sequences to match the longest sequence in batch.
 
 
 
-2️⃣ model_seq2seq.py – Neural network
+2️⃣ Model Definition (`model_seq2seq.py`)
 
-A. CNN Encoder
+Purpose:
 
-* Extracts features from images using convolutional layers, batch norm, ReLU, max pooling, and dropout.
-* Produces sequences of features for the decoder.
+* Implements **CNN + Attention + LSTM** for Hindi text recognition.
 
-B. Attention Layer
+Tech / Algorithms / Logic:
 
-* Computes attention weights over encoder features at each step.
-* Helps the decoder focus on the relevant part of the image when predicting each character.
+* CNN Encoder:
 
-C. Decoder
+  * Extracts features from the input image.
+  * Uses convolutional blocks, batch normalization, pooling, and dropout.
+  * Converts 2D feature maps into sequence of feature vectors.
+* Attention Module:
 
-* Embedding → LSTM → Attention → Output layer.
-* Predicts characters one at a time.
-* Supports teacher forcing during training.
+  * Helps the decoder focus on important parts of the image.
+  * Computes attention weights dynamically.
+* Decoder with LSTM:
 
-D. Seq2Seq Model
+  * Takes encoder features + previous token embeddings.
+  * Uses attention to create context vectors.
+  * Predicts next character token in sequence.
+* Full Seq2Seq:
 
-* Combines encoder + decoder.
-* Forward pass: image → encoder → decoder → predicted sequence.
+  * Connects encoder + decoder.
+  * Supports teacher forcing during training.
 
-3️⃣ test_seq2seq.py – Inference
 
-* Loads trained model weights.
-* Preprocesses new images (resize + normalize).
-* Two decoding options:
+3️⃣ Model Testing / Inference (`test_seq2seq.py`)
 
-  1. Greedy decoding – pick the most likely character each step.
-  2. Beam search – keeps top sequences for more accurate predictions.
-Converts predicted numbers back to characters.
+Purpose:
 
-4️⃣ train_eval_seq2seq.py – Training
+* Test a trained model on a single image or batch of images.
+* Compare Greedy decoding vs Beam Search decoding.
 
-* Uses DataLoader with collate function for batches.
-* Label smoothing prevents overconfident predictions.
-* Teacher forcing schedule: start high, gradually reduce so model learns to predict on its own.
-* Data augmentation: small image distortions to improve robustness.
-* Optimizer & scheduler**: Adam + OneCycleLR for better convergence.
-* Evaluates Character Error Rate (CER) and accuracy during training.
-* Saves checkpoints and best models.
+Tech / Algorithms / Logic:
+
+* Greedy decoding: Select the most probable token at each step.
+* Beam search decoding:
+
+  * Keeps multiple candidate sequences at each step.
+  * Picks the sequence with the highest cumulative probability.
+  * More accurate than greedy, especially for longer sequences.
+* Loads vocab from training CSV to ensure consistency.
+* Handles image transforms (resize, normalization).
+
+
+
+4️⃣ Training Script (`train_seq2seq_main.py`)
+
+Purpose
+
+* Train the full Seq2Seq model on a dataset of images + Hindi text.
+* Save best checkpoints.
+* Evaluate performance using character accuracy and CER.
+
+Tech / Algorithms / Logic:
+
+* Data Augmentation:
+
+  * Resize, color jitter, small rotation, translation → helps generalization.
+* Label Smoothing:
+
+  * Instead of standard cross-entropy, smooths target distribution slightly → prevents overconfident predictions.
+* Teacher Forcing:
+
+  * Use true target token sometimes instead of predicted token → speeds up learning.
+  * Ratio scheduled to decrease over epochs.
+* Optimizer & Scheduler
+
+  * Adam optimizer.
+  * OneCycleLR scheduler for dynamic learning rate.
+* Evaluation:
+
+  * Character-level accuracy.
+  * CER (Character Error Rate).
+  * Optional beam search evaluation.
+* Checkpointing:
+
+  * Save model every few epochs.
+  * Save the “best” model based on character accuracy.
+
+
+
+Pipeline Summary
+
+
+
+1. `dataset_seq2seq_simple.py` → prepares dataset, tokenizes, pads, batches.
+2. `model_seq2seq.py` → defines CNN encoder + attention LSTM decoder (core model).
+3. `train_seq2seq_main.py` → trains the model with augmentation, label smoothing, teacher forcing, and checkpoints.
+4. `test_seq2seq.py` → tests or infers on new images using greedy or beam search.
 
