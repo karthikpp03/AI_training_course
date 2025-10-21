@@ -1,4 +1,6 @@
-#virtual env
-venv/ 
-
+# Virtual environments
+venv/
 torch_gpu_env/
+
+# Ignore datasets
+dataset_all/transileration/hi_en.csv
