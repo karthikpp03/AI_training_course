@@ -1,3 +1,6 @@
+train_csv = r"E:\AI_training_course\capstone_project\data\recognition\train.csv"
+base_folder = r"E:\AI_training_course\capstone_project\data\recognition"
+
 
 1️⃣ Dataset Preparation (`dataset_seq2seq_simple.py`)
 

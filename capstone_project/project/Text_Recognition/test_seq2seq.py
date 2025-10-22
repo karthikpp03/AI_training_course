@@ -14,7 +14,7 @@ train_csv = r"E:\AI_training_course\capstone_project\data\recognition\train.csv"
 base_folder = r"E:\AI_training_course\capstone_project\data\recognition"
 
 # --- Build vocab (same as what was used during training) ---
-print("📚 Building vocab from training data...")
+print("Building vocab from training data...")
 temp_ds = HindiSeqDataset(train_csv, base_folder, build_vocab_from_csv=True)
 vocab = temp_ds.vocab
 pad_idx = temp_ds.token2idx['<PAD>']
@@ -22,7 +22,7 @@ sos_idx = temp_ds.token2idx['<SOS>']
 eos_idx = temp_ds.token2idx['<EOS>']
 
 # --- Load model ---
-print("⚙️ Loading trained Seq2Seq model...")
+print("Loading trained Seq2Seq model...")
 encoder = CNNEncoder(in_channels=1, feat_dim=512)
 decoder = DecoderWithAttention(
     vocab_size=len(vocab),
